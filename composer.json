@@ -1,0 +1,31 @@
+{
+    "name": "shampeak/wise",
+    "description": "dev",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shampeak",
+            "email": "shampeak@sina.com.cn"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php" : ">=5.4.9"
+    },
+    "require-dev": {
+    },
+    "autoload":{
+        "psr-4":{
+            "wise\\": "src\\"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer", "url": "http://packagist.phpcomposer.com"
+        },
+        {
+            "packagist": false
+        }
+    ]
+}
