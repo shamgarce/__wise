@@ -53,6 +53,7 @@ include("../vendor/autoload.php");
 -------
 
 ```
+//初始化
 $wise = wise\wise::getInstance([
     'ini' => [
         'username'    => '',
@@ -63,11 +64,15 @@ $wise = wise\wise::getInstance([
         'db'        => 'Config/db.php',
     ],
 ]);
+
+//载入
 $wise->load('db2','Config/Config.php');
 
+//设置参数
 $wise->C('myinfo',[]);
 $wise->C('myinfo','123123123123');
 
+//调用2
 $md = $wise('myinfo');
 ```
 
