@@ -1,7 +1,7 @@
 {
     "name": "shampeak/wise",
     "description": "dev",
-    "type": "package",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +9,6 @@
             "email": "shampeak@sina.com.cn"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php" : ">=5.4.9"
     },
