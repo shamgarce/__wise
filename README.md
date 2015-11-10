@@ -1,7 +1,7 @@
 WISE
 =======
 
-包 `shampeak/wise` 为程序提供配置信息支持.
+Package `shampeak/wise` 为程序提供配置信息支持.
 
 要点
 ------
@@ -24,8 +24,7 @@ WISE
 
 You need:
 
-- **PHP >= 5.4.0** , but the latest stable version of PHP is recommended
-- the `mbstring` extension
+- **PHP >= 5.4.9** , but the latest stable version of PHP is recommended
 
 To use the library.
 
@@ -38,24 +37,28 @@ To use the library.
 $ composer require shampeak/wise
 ```
 
-测试
--------
-
-`League\Uri` has a [PHPUnit](https://phpunit.de) test suite and a coding style compliance test suite using [PHP CS Fixer](http://cs.sensiolabs.org/). To run the tests, run the following command from the project folder.
-
-``` bash
-$ composer test
-```
-
 使用
 -------
 
 ```
-//$req = new Sham\Http\Request(Sham\Environment::getInstance());
-$req = new Sham\Request() ;
-$get = $req->get();       //GET����
-$path1 = $req->getPath(); //path����
-$path2 = $req->getPath()->toArray();  //path����
+include("../vendor/autoload.php");
+
+$wise = wise\wise::getInstance([
+    'ini' => [
+        'username'    => '',
+        'dbhost'        => '125.0.0.1',
+    ],
+    'file'=>[
+        'Config'    => 'Config/Config.php',
+        'db'        => 'Config/db.php',
+    ],
+]);
+$wise->load('db2','Config/Config.php');
+
+$wise->C('myinfo',[]);
+$wise->C('myinfo','123123123123');
+
+$md = $wise('myinfo');
 ```
 
 安全
