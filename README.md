@@ -1,41 +1,41 @@
-URI
+WISE
 =======
 
-The `shampeak/request` package provides simple and intuitive classes to create and manage URIs in PHP.
+包 `shampeak/wise` 为程序提供配置信息支持.
 
 要点
 ------
 
 - Simple API
 - [RFC3986](http://tools.ietf.org/html/rfc3986) compliant
-- Implements the `UriInterface` from [PSR-7][]
-- Fully documented
-- Framework Agnostic
 - Composer ready, [PSR-2][] and [PSR-4][] compliant
+- Implements the `UriInterface` from [PSR-7][]
+- Framework Agnostic
+- Fully documented
+- Demo
 
 文档
 ------
 
-完整的文档地址 [url.thephpleague.com](http://url.thephpleague.com).
+完整的文档地址 [wise.phpleague.cn](http://wise.phpleague.cn).
 
 系统需求
 -------
 
 You need:
 
-- **PHP >= 5.5.0** , but the latest stable version of PHP is recommended
+- **PHP >= 5.4.0** , but the latest stable version of PHP is recommended
 - the `mbstring` extension
-- "league/url": "^3.3"
 
 To use the library.
 
 安装
 -------
 
-使用composer安装 `shampeak\request` .
+使用composer安装 `shampeak/wise` .
 
 ```
-$ composer require shampeak/request
+$ composer require shampeak/wise
 ```
 
 测试
