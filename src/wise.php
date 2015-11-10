@@ -11,12 +11,18 @@ class Wise{
        * @param string $conf
        * 根据配置获取设定
        */
-      private function __construct($conf = ''){
-            $filelist = $conf['file']?:array();
+      private function __construct($conf = array()){
+
+            $filelist = !isset($conf['file'])?array():$conf['file']?:array();
+            //$filelist = $conf['file']?:array();
+
             foreach($filelist as $key=>$value){
                   $this->load($key,$value);
             }
-            $ini = $conf['ini']?:array();
+
+            $ini = !isset($conf['ini'])?array():$conf['ini']?:array();
+            //$ini = $conf['ini']?:array();
+
             $this->C($ini);
       }
 
@@ -25,7 +31,7 @@ class Wise{
        * @return wise|null
        * 单例调用
        */
-      public static function getInstance($conf){
+      public static function getInstance($conf = array()){
             if(!(self::$_instance instanceof self)){
                   self::$_instance = new self($conf);
             }
