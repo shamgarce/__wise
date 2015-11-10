@@ -9,7 +9,7 @@ class wise{
 
       /**
        * @param string $conf
-       * ¸ù¾ÝÅäÖÃ»ñÈ¡Éè¶¨
+       * æ ¹æ®é…ç½®èŽ·å–è®¾å®š
        */
       private function __construct($conf = ''){
             $filelist = $conf['file']?:array();
@@ -23,7 +23,7 @@ class wise{
       /**
        * @param $conf
        * @return wise|null
-       * µ¥Àýµ÷ÓÃ
+       * å•ä¾‹è°ƒç”¨
        */
       public static function getInstance($conf){
             if(!(self::$_instance instanceof self)){
@@ -36,7 +36,7 @@ class wise{
       /**
        * @param $key
        * @param string $file
-       * ÔØÈëÒ»¸öÎÄ¼þµÄÅäÖÃ
+       * è½½å…¥ä¸€ä¸ªæ–‡ä»¶çš„é…ç½®
        */
       public function load($key,$file=''){
             if(file_exists($file)){
@@ -49,24 +49,24 @@ class wise{
        * @param string $key
        * @param array $value
        * @return array|null
-       * ÉèÖÃÈ«¾Ö²ÎÊý
+       * è®¾ç½®å…¨å±€å‚æ•°
        */
       public function C($key = '',$value = array()){
             $args = func_num_args();
 
-            //1 : ·µ»ØÅäÖÃÐÅÏ¢
+            //1 : è¿”å›žé…ç½®ä¿¡æ¯
             if($args == 0){
                   return $this->_config;
             }
 
-            //2 : ÓÐÒ»¸ö²ÎÊý
+            //2 : æœ‰ä¸€ä¸ªå‚æ•°
             if($args == 1){
 
-                  if(is_string($key)){  //Èç¹û´«ÈëµÄkeyÊÇ×Ö·û´®
+                  if(is_string($key)){  //å¦‚æžœä¼ å…¥çš„keyæ˜¯å­—ç¬¦ä¸²
                         return isset($this->_config[$key])?$this->_config[$key]:null;
                   }
                   if(is_array($key)){
-                        if(array_keys($key) !== range(0, count($key) - 1)){  //Èç¹û´«ÈëµÄkeyÊÇ¹ØÁªÊý×é
+                        if(array_keys($key) !== range(0, count($key) - 1)){  //å¦‚æžœä¼ å…¥çš„keyæ˜¯å…³è”æ•°ç»„
                               $this->_config = array_merge($this->_config, $key);
                         }else{
                               $ret = array();
@@ -78,11 +78,11 @@ class wise{
                   }
 
             }else{
-                  //ÉèÖÃÒ»¸öÖµ
+                  //è®¾ç½®ä¸€ä¸ªå€¼
                   if(is_string($key)){
                         $this->_config[$key] = $value;
                   }else{
-                        halt('´«Èë²ÎÊý²»ÕýÈ·');
+                        halt('ä¼ å…¥å‚æ•°ä¸æ­£ç¡®');
                   }
             }
             return null;
@@ -91,10 +91,10 @@ class wise{
       /**
        * @param $key
        * @return null
-       * µ÷ÓÃÆäÖÐµÄÊý¾Ý
+       * è°ƒç”¨å…¶ä¸­çš„æ•°æ®
        */
       function __invoke($key) {
-            //ÉèÖÃÒ»¸öÖµ
+            //è®¾ç½®ä¸€ä¸ªå€¼
             if(is_string($key)){
                   return $this->_config[$key];
             }else{

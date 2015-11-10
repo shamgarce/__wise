@@ -3,7 +3,7 @@ URI
 
 The `shampeak/request` package provides simple and intuitive classes to create and manage URIs in PHP.
 
-Highlights
+要点
 ------
 
 - Simple API
@@ -13,12 +13,12 @@ Highlights
 - Framework Agnostic
 - Composer ready, [PSR-2][] and [PSR-4][] compliant
 
-Documentation
+文档
 ------
 
-Full documentation can be found at [url.thephpleague.com](http://url.thephpleague.com). Contribute to this documentation in the [gh-pages](https://github.com/thephpleague/url/tree/gh-pages) branch
+完整的文档地址 [url.thephpleague.com](http://url.thephpleague.com).
 
-System Requirements
+系统需求
 -------
 
 You need:
@@ -29,16 +29,16 @@ You need:
 
 To use the library.
 
-Install
+安装
 -------
 
-Install `shampeak\request` using Composer.
+使用composer安装 `shampeak\request` .
 
 ```
 $ composer require shampeak/request
 ```
 
-Testing
+测试
 -------
 
 `League\Uri` has a [PHPUnit](https://phpunit.de) test suite and a coding style compliance test suite using [PHP CS Fixer](http://cs.sensiolabs.org/). To run the tests, run the following command from the project folder.
@@ -47,32 +47,26 @@ Testing
 $ composer test
 ```
 
-Use
+使用
 -------
 
 ```
 //$req = new Sham\Http\Request(Sham\Environment::getInstance());
 $req = new Sham\Request() ;
-$get = $req->get();       //GET����
-$path1 = $req->getPath(); //path����
-$path2 = $req->getPath()->toArray();  //path����
+$get = $req->get();       //GET����
+$path1 = $req->getPath(); //path����
+$path2 = $req->getPath()->toArray();  //path����
 ```
 
-
-Contributing
+安全
 -------
 
-Contributions are welcome and will be fully credited. Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+如果你发现任何安全问题,请发EMAIL shampeak@sina.com 给我,不要用issue tracker.
 
-Security
+许可协议
 -------
 
-If you discover any security related issues, please email shampeak@sina.com instead of using the issue tracker.
-
-License
--------
-
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+本系统采用 MIT 许可协议(MIT)。请参阅[License File](LICENSE)获取更多信息。
 
 [PSR-2]: http://www.php-fig.org/psr/psr-2/
 [PSR-4]: http://www.php-fig.org/psr/psr-4/
