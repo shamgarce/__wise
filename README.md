@@ -22,7 +22,7 @@ Package `shampeak/wise` 为程序提供配置信息支持.
 文档
 ------
 
-完整的文档地址 [wise.phpleague.cn](http://wise.phpleague.cn).
+完整的文档地址 [www.phpleague.cn/wise](http://www.phpleague.cn/wise).
 
 系统需求
 -------
