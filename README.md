@@ -14,7 +14,6 @@ Package `shampeak/wise` 为程序提供配置信息支持.
 - Simple API
 - [RFC3986](http://tools.ietf.org/html/rfc3986) compliant
 - Composer ready, [PSR-2][] and [PSR-4][] compliant
-- Implements the `UriInterface` from [PSR-7][]
 - Framework Agnostic
 - Fully documented
 - Demo
