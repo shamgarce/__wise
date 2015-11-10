@@ -39,7 +39,7 @@ To use the library.
 使用composer安装 `shampeak/wise` .
 
 ```
-$ composer require shampeak/wise
+$ composer require shampeak/wise dev-master
 ```
 
 使用前
