@@ -37,12 +37,18 @@ To use the library.
 $ composer require shampeak/wise
 ```
 
-使用
+使用前
 -------
 
 ```
 include("../vendor/autoload.php");
+```
 
+
+使用
+-------
+
+```
 $wise = wise\wise::getInstance([
     'ini' => [
         'username'    => '',
