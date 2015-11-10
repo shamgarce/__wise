@@ -54,7 +54,7 @@ include("../vendor/autoload.php");
 
 ```
 //初始化
-$wise = Sham\wise\wise::getInstance([
+$wise = Sham\Wise\Wise::getInstance([
     'ini' => [
         'username'    => '',
         'dbhost'        => '125.0.0.1',
