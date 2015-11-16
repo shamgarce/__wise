@@ -16,7 +16,7 @@
     },
     "autoload":{
         "psr-4":{
-            "Sham\\Wise\\": "src"
+            "Sham\\wise\\": "src"
         }
     },
     "repositories": [

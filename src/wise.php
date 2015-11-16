@@ -1,8 +1,8 @@
 <?php
 
-namespace Sham\Wise;
+namespace Sham\wise;
 
-class Wise{
+class wise{
 
       private $_config = array();
       private static $_instance = null;
