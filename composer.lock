@@ -4,13 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c405af71c7d3e0aa4eb7b7349c8265fc",
-    "content-hash": "678d64ce388aa19eead2c99262bf2945",
-    "packages": [],
+    "hash": "20e042b4ec358eb8b804c5d7dee47d85",
+    "content-hash": "bf638b79444b92f14d827f77b6369565",
+    "packages": [
+        {
+            "name": "shampeak/base",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shampeak/base.git",
+                "reference": "74b2862e5c1e5bb1f9df7914d1e67fdc7b3664ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shampeak/base/zipball/74b2862e5c1e5bb1f9df7914d1e67fdc7b3664ca",
+                "reference": "74b2862e5c1e5bb1f9df7914d1e67fdc7b3664ca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sham\\base\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "shampeak",
+                    "email": "shampeak@sina.com.cn"
+                }
+            ],
+            "description": "dev",
+            "time": "2015-11-17 07:19:02"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "shampeak/base": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

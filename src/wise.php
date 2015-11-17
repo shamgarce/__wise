@@ -2,7 +2,12 @@
 
 namespace Sham\wise;
 
-class wise{
+/**
+ * Class wise
+ * @package Sham\wise
+ * 引用base 是为了注入对象
+ */
+class wise extends \Sham\base\base{
 
       private $_config = array();
       private static $_instance = null;
@@ -36,6 +41,31 @@ class wise{
                   self::$_instance = new self($conf);
             }
             return self::$_instance;
+      }
+
+
+      /**
+       * @param $key
+       * @param string $obj
+       */
+      public function loadnewobj($key,$obj='',$params){
+            if($key && $obj)
+                  $this->singleton($key, function () use ($obj,$params)  {
+                        return new $obj($params);
+                  });
+      }
+
+      /**
+       * @param $key
+       * @param string $obj
+       * @param $params
+       * getInstance 产生
+       */
+      public function loadobj($key,$obj='',$params){
+            if($key && $obj)
+                  $this->singleton($key, function () use ($obj,$params)  {
+                        return $obj::getInstance($params);
+                  });
       }
 
 
@@ -92,6 +122,24 @@ class wise{
                   }
             }
             return null;
+      }
+
+      /**
+       * Ensure a value or object will remain globally unique
+       * @param  string  $key   The value or object name
+       * @param  Closure        The closure that defines the object
+       * @return mixed
+       */
+      public function singleton($key, $value)
+      {
+
+            $this->set($key, function ($c) use ($value) {
+                  static $object;
+                  if (null === $object) {
+                        $object = $value($c);
+                  }
+                  return $object;
+            });
       }
 
       /**
