@@ -18,15 +18,7 @@
     "autoload":{
         "psr-4":{
             "App\\": "App",
-            "Sham\\wise\\": "src"
+            "Sham\\Wise\\": "src"
         }
-    },
-    "repositories": [
-        {
-            "type": "composer", "url": "http://packagist.phpcomposer.com"
-        },
-        {
-            "packagist": false
-        }
-    ]
+    }
 }

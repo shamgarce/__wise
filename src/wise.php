@@ -1,13 +1,14 @@
 <?php
 
-namespace Sham\wise;
+namespace Sham\Wise;
 
 /**
  * Class wise
  * @package Sham\wise
- * 引用base 是为了注入对象
  */
-class wise extends \Sham\base\base{
+
+class Wise extends \Sham\Base\Base
+{
 
       private $_config = array();
       private static $_instance = null;
