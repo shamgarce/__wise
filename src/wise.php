@@ -7,29 +7,35 @@ namespace Sham\Wise;
  * @package Sham\wise
  */
 
-class Wise extends \Sham\Base\Base
+class Wise extends Set\Base
 {
+      /**
+       * @var null
+       * wise单例调用
+       */
+      private static $_instance = null;       //单例调用
 
-      private $_config = array();
-      private static $_instance = null;
+      //服务对象存储
+      public $providers = array();             //服务对象存储
+
+      //服务对象配置信息存储
+      public $ObjectConfig = array();             //服务对象配置信息存储
+
+      public $_config  = array();              //C函数的存储     //所有的配置信息存储在这里
+
+      private $rootpath = '../App/Config/';     //配置文件的根目录
 
       /**
        * @param string $conf
        * 根据配置获取设定
        */
-      private function __construct($conf = array()){
-
-            $filelist = !isset($conf['file'])?array():$conf['file']?:array();
-            //$filelist = $conf['file']?:array();
-
-            foreach($filelist as $key=>$value){
-                  $this->load($key,$value);
+      private function __construct(){
+            $this->_config = $this->load($this->rootpath."Config.php");
+            if(is_array($this->_config['FileReflect'])){
+                  foreach($this->_config['FileReflect'] as $key=>$file){
+                        $this->ObjectConfig[$key] =  $this->load($file);
+                  }
             }
-
-            $ini = !isset($conf['ini'])?array():$conf['ini']?:array();
-            //$ini = $conf['ini']?:array();
-
-            $this->C($ini);
       }
 
       /**
@@ -37,93 +43,50 @@ class Wise extends \Sham\Base\Base
        * @return wise|null
        * 单例调用
        */
-      public static function getInstance($conf = array()){
+      public static function getInstance(){
             if(!(self::$_instance instanceof self)){
-                  self::$_instance = new self($conf);
+                  self::$_instance = new self();
             }
             return self::$_instance;
       }
 
+      public function make($abstract, array $parameters = [])
+      {
+            // If an instance of the type is currently being managed as a singleton we'll
+            // just return an existing instance instead of instantiating new instances
+            // so the developer can keep using the same objects instance every time.
+            if (isset($this->instances[$abstract])) {
+                  return $this->instances[$abstract];
+            }
 
-      /**
-       * @param $key
-       * @param string $obj
-       */
-      public function loadnewobj($key,$obj='',$params){
-            if($key && $obj)
-                  $this->singleton($key, function () use ($obj,$params)  {
-                        return new $obj($params);
-                  });
+            //未定义的服务类 返回空值;
+            if (!isset($this->providers[$abstract])) {
+                  return null;
+            }
+
+
+            $this->instances[$abstract] = $this->build($abstract,$parameters);
+            return $this->instances[$abstract];
       }
 
-      /**
-       * @param $key
-       * @param string $obj
-       * @param $params
-       * getInstance 产生
-       */
-      public function loadobj($key,$obj='',$params){
-            if($key && $obj)
-                  $this->singleton($key, function () use ($obj,$params)  {
-                        return $obj::getInstance($params);
-                  });
+      public function build($abstract, array $parameters = [])
+      {
+            return new $this->providers[$abstract]($parameters);
       }
-
 
       /**
        * @param $key
        * @param string $file
        * 载入一个文件的配置
        */
-      public function load($key,$file=''){
+      public function load($file=''){
             if(file_exists($file)){
-                  $res = include $file;
-                  $this->C($key,$res);
+                  return include $file;
             }
+            return [];
       }
 
-      /**
-       * @param string $key
-       * @param array $value
-       * @return array|null
-       * 设置全局参数
-       */
-      public function C($key = '',$value = array()){
-            $args = func_num_args();
 
-            //1 : 返回配置信息
-            if($args == 0){
-                  return $this->_config;
-            }
-
-            //2 : 有一个参数
-            if($args == 1){
-
-                  if(is_string($key)){  //如果传入的key是字符串
-                        return isset($this->_config[$key])?$this->_config[$key]:null;
-                  }
-                  if(is_array($key)){
-                        if(array_keys($key) !== range(0, count($key) - 1)){  //如果传入的key是关联数组
-                              $this->_config = array_merge($this->_config, $key);
-                        }else{
-                              $ret = array();
-                              foreach ($key as $k) {
-                                    $ret[$k] = isset($this->_config[$k])?$this->_config[$k]:null;
-                              }
-                              return $ret;
-                        }
-                  }
-
-            }else{
-                  //设置一个值
-                  if(is_string($key)){
-                        $this->_config[$key] = $value;
-                  }else{
-                        halt('传入参数不正确');
-                  }
-            }
-            return null;
-      }
 
       /**
        * Ensure a value or object will remain globally unique

@@ -10,14 +10,12 @@
         }
     ],
     "require": {
-        "php" : ">=5.4.9",
-        "shampeak/base":"dev-master"
+        "php" : ">=5.4.9"
     },
     "require-dev": {
     },
     "autoload":{
         "psr-4":{
-            "App\\": "App",
             "Sham\\Wise\\": "src"
         }
     }

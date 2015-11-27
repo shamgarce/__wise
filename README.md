@@ -74,6 +74,15 @@ $wise->C('myinfo','123123123123');
 
 //调用2
 $md = $wise('myinfo');
+
+
+//对象 db cache config input
+$wise->db;
+$wise->cache;
+$wise->config;
+$wise->input;
+
+
 ```
 
 安全
