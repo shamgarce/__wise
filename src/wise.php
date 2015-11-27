@@ -31,6 +31,8 @@ class Wise extends Set\Base
        */
       private function __construct(){
             $this->_config = $this->load($this->rootpath."Config.php");
+            $this->providers = $this->load($this->rootpath."Providers.php");
+
             if(is_array($this->_config['FileReflect'])){
                   foreach($this->_config['FileReflect'] as $key=>$file){
                         $this->ObjectConfig[$key] =  $this->load($file);

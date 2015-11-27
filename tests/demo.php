@@ -36,38 +36,15 @@ include("../vendor/autoload.php");
     //设置初始参数
     $c = Sham\Wise\C($config);
 
-
-//对象配置信息存储的地址
-//Sham\Wise\Wise::getInstance()->ObjectConfig
-
 //返回所有的服务列表
-print_r(Sham\Wise\Wise::getInstance()->ObjectConfig);
+print_r(Sham\Wise\Wise::getInstance()->ObjectConfig);       //对象配置
+print_r(Sham\Wise\Wise::getInstance()->providers);          //对象列表
+print_r(Sham\Wise\C());                                     //整体配置信息
+var_dump(Sham\Wise\Wise::getInstance());                    //wise对象
+var_dump(Sham\Wise\Wise::getInstance()->make('db'));       //访问内对象
 
-
-
-
-
-
-
-
-
-
-//返回所有已经设置的参数
-$c = Sham\Wise\C();
-
-
-
-print_r($c);
-echo 'mark';
 exit;
 
-
-$ms =  Sham\Wise\Wise::getInstance();
-
-$make = 'db';
-
-$ob = Sham\Wise\Wise::getInstance()->make($make);
-var_dump($ob);
 exit;
 
 

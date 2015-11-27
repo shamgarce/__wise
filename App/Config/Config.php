@@ -1,14 +1,34 @@
 <?php
 
 return [
-      /**
-       * 文件配置映射 FileReflect
-       */
+
+    /*
+    |--------------------------------------------------------------------------
+    | 文件配置信息
+    |--------------------------------------------------------------------------
+    |
+    | 配置信息在文件中,访问 : Sham\Wise\Wise::getInstance()->ObjectConfig
+    |
+    */
+
     'FileReflect'    => [
         'Mysql'         => '../App/Config/Mysql.php',         //Mysql对象的
         'Cache'         => '../App/Config/Cache.php',         //cache对象的
-        'Providers'     => '../App/Config/Providers.php',
     ],
+
+    //
+    // 'Providers'     => '../App/Config/Providers.php',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | 配置信息
+    |--------------------------------------------------------------------------
+    |
+    | 配置信息,访问 : Sham\Wise\Wise::getInstance()->_config
+    |
+    */
+
     'config'    => 'dbconchr',
 ];
 
