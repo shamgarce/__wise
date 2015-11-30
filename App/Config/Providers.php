@@ -8,6 +8,6 @@
  */
 
 return [
-    'Db'        => 'Sham\Wise\Db',
+    'Db'        => 'Sham\Db\Db',
 ];
 

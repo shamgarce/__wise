@@ -63,19 +63,6 @@ if (! function_exists('sc')) {
 
 
 
-
-//
-//
-//
-//if (! function_exists('app')) {
-//      /**
-//       * Get the available container instance.
-//       *
-//       * @param  string  $make
-//       * @param  array   $parameters
-//       */
-
-//}
 //
 //
 //if (! function_exists('abort')) {

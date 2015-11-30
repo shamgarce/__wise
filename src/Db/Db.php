@@ -1,6 +1,6 @@
 <?php
 
-namespace Sham\Wise;
+namespace Sham\Db;
 
 /**
  * Class wise
