@@ -16,7 +16,9 @@ class Wise extends Set\Base
       private static $_instance = null;       //单例调用
 
       //服务对象存储
-      public $providers = array();             //服务对象存储
+      public $providers = array();             //服务对象存储 映射
+      public $instances = array();             //服务对象存储 实例
+
 
       //服务对象配置信息存储
       public $ObjectConfig = array();             //服务对象配置信息存储
@@ -35,7 +37,7 @@ class Wise extends Set\Base
 
             if(is_array($this->_config['FileReflect'])){
                   foreach($this->_config['FileReflect'] as $key=>$file){
-                        $this->ObjectConfig[$key] =  $this->load($file);
+                        $this->ObjectConfig[ucfirst($key)] =  $this->load($file);
                   }
             }
       }
@@ -52,20 +54,22 @@ class Wise extends Set\Base
             return self::$_instance;
       }
 
-      public function make($abstract, array $parameters = [])
+      public function make($abstract,$parameters=[])
       {
+            $abstract = ucfirst($abstract);
             // If an instance of the type is currently being managed as a singleton we'll
             // just return an existing instance instead of instantiating new instances
             // so the developer can keep using the same objects instance every time.
             if (isset($this->instances[$abstract])) {
                   return $this->instances[$abstract];
             }
-
             //未定义的服务类 返回空值;
             if (!isset($this->providers[$abstract])) {
                   return null;
             }
+           // echo $abstract;
 
+            $parameters = $parameters?:$this->ObjectConfig[$abstract];
 
             $this->instances[$abstract] = $this->build($abstract,$parameters);
             return $this->instances[$abstract];
@@ -73,7 +77,9 @@ class Wise extends Set\Base
 
       public function build($abstract, array $parameters = [])
       {
-            return new $this->providers[$abstract]($parameters);
+            $obj_ = $this->providers[$abstract];
+            $obj = new $obj_($parameters);
+            return $obj;
       }
 
       /**

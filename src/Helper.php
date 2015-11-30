@@ -1,34 +1,48 @@
 <?php
 
-//这里的命名空间是为了跟其他系统的函数不会造成冲突
+/*
+|--------------------------------------------------------------------------
+| 基础函数
+|--------------------------------------------------------------------------
+| 小写  sap sc
+|
+*/
 
-namespace Sham\Wise;
+//这里注意不要跟别的系统函数名冲突
 
-use Sham\Wise\Wise;
+if (! function_exists('sap')) {
+      function sap($make = null, $parameters = [])
+      {
+            if (is_null($make)) {
+                  return Sham\Wise\Wise::getInstance();
+            }
+            return Sham\Wise\Wise::getInstance()->make($make, $parameters);
+      }
+}
 
-
-      function C($key = '', $value = array())
+if (! function_exists('sc')) {
+      function sc($key = '', $value = array())
       {
             $args = func_num_args();
 
             //1 : 返回配置信息
             if ($args == 0) {
-                  return Wise::getInstance()->_config;
+                  return Sham\Wise\Wise::getInstance()->_config;
             }
 
             //2 : 有一个参数
             if ($args == 1) {
 
                   if (is_string($key)) {  //如果传入的key是字符串
-                        return isset(Wise::getInstance()->_config[$key]) ? Wise::getInstance()->_config[$key] : null;
+                        return isset(Sham\Wise\Wise::getInstance()->_config[$key]) ? Sham\Wise\Wise::getInstance()->_config[$key] : null;
                   }
                   if (is_array($key)) {
                         if (array_keys($key) !== range(0, count($key) - 1)) {  //如果传入的key是关联数组
-                              Wise::getInstance()->_config = array_merge(Wise::getInstance()->_config, $key);
+                              Sham\Wise\Wise::getInstance()->_config = array_merge(Sham\Wise\Wise::getInstance()->_config, $key);
                         } else {
                               $ret = array();
                               foreach ($key as $k) {
-                                    $ret[$k] = isset(Wise::getInstance()->_config[$k]) ? Wise::getInstance()->_config[$k] : null;
+                                    $ret[$k] = isset(Sham\Wise\Wise::getInstance()->_config[$k]) ? Sham\Wise\Wise::getInstance()->_config[$k] : null;
                               }
                               return $ret;
                         }
@@ -37,7 +51,7 @@ use Sham\Wise\Wise;
             } else {
                   //设置一个值
                   if (is_string($key)) {
-                        Wise::getInstance()->_config[$key] = $value;
+                        Sham\Wise\Wise::getInstance()->_config[$key] = $value;
                   }
                   //else {
 //                        halt('传入参数不正确');
@@ -45,6 +59,7 @@ use Sham\Wise\Wise;
             }
             return null;
       }
+}
 
 
 
@@ -59,13 +74,7 @@ use Sham\Wise\Wise;
 //       * @param  string  $make
 //       * @param  array   $parameters
 //       */
-//      function app($make = null, $parameters = [])
-//      {
-//            if (is_null($make)) {
-//                  return Wise::getInstance();
-//            }
-//            return Wise::getInstance()->make($make, $parameters);
-//      }
+
 //}
 //
 //

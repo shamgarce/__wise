@@ -2,19 +2,11 @@
 /**
  *
  */
-
-function C($key = '', $value = array())
-{
-    echo '123';
-}
-
 include("../src/Helper.php");
-
 /**
  * autoload : psr-4
  */
 include("../vendor/autoload.php");
-
 
     /*
     |--------------------------------------------------------------------------
@@ -25,23 +17,47 @@ include("../vendor/autoload.php");
     |
     */
 
-    $config = [
-        'afds'=>'adsffsdafdsa',
-        'afds1'=>'adsffsdafdsa',
-        'afds2'=>'adsffsdafdsa',
-        'afds3'=>'adsffsdafdsa',
-        'afds4'=>'adsffsdafdsa',
-    ];
-
-    //设置初始参数
-    $c = Sham\Wise\C($config);
+//    手动添加相对应的配置
+//    $config = [
+//        'afds'=>'adsffsdafdsa',
+//        'afds1'=>'adsffsdafdsa',
+//        'afds2'=>'adsffsdafdsa',
+//        'afds3'=>'adsffsdafdsa',
+//        'afds4'=>'adsffsdafdsa',
+//    ];
+//
+//    //设置初始参数
+//    $c = sc($config);
 
 //返回所有的服务列表
-print_r(Sham\Wise\Wise::getInstance()->ObjectConfig);       //对象配置
-print_r(Sham\Wise\Wise::getInstance()->providers);          //对象列表
-print_r(Sham\Wise\C());                                     //整体配置信息
-var_dump(Sham\Wise\Wise::getInstance());                    //wise对象
-var_dump(Sham\Wise\Wise::getInstance()->make('db'));       //访问内对象
+//print_r(Sham\Wise\Wise::getInstance()->ObjectConfig);       //对象配置 -根据config中的FileReflect 得到相对应的配置
+//print_r(Sham\Wise\Wise::getInstance()->providers);          //对象列表 -> Config/Providers.php
+//print_r(sc());                                            //整体配置信息
+//var_dump(Sham\Wise\Wise::getInstance());                    //wise对象
+
+//配置文件直接读取Sham\Wise\Wise::getInstance()->ObjectConfig['db']
+//var_dump(Sham\Wise\Wise::getInstance()->make('db'));          //单例访问 [实例化]
+//var_dump(Sham\Wise\Wise::getInstance()->instances); //建立的对象 初始为空
+
+
+
+//app函数中自己判断是否已经OK
+
+sap('db')->test();      //体现优雅
+
+    //->message('文章已保存');     //对类的调用
+
+
+/*
+    |--------------------------------------------------------------------------
+    | 通用方法规划和设置
+    |--------------------------------------------------------------------------
+    | 1 : run()         执行的
+    | 2 : __invoke      文字信息
+    | 3 : description 打印出说明
+    | 4 : construction 打印出结构性信息
+    |
+*/
 
 exit;
 
@@ -69,7 +85,6 @@ $config = include('../App/Config/Config.php');
 
 
 print_r($config);
-
 
 
 

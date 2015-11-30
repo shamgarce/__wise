@@ -1,6 +1,6 @@
 <?php
 
-namespace Sham\Wise\Library;
+namespace Sham\Wise;
 
 /**
  * Class wise
@@ -12,6 +12,7 @@ class Db
       private $_config  = array();
 
       public function __construct($config = array()){
+            print_r($config);
       }
 
       function __invoke($key) {
@@ -21,6 +22,9 @@ class Db
             }else{
                   return null;
             }
+      }
+      public function test(){
+            echo 123;
       }
 
 }
