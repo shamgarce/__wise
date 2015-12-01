@@ -18,7 +18,8 @@
     },
     "autoload":{
         "psr-4":{
-            "Sham\\": "src"
+            "Sham\\": "src",
+            "App\\": "App"
         }
     }
 }

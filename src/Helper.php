@@ -10,13 +10,36 @@
 
 //这里注意不要跟别的系统函数名冲突
 
-if (! function_exists('sap')) {
-      function sap($make = null, $parameters = [])
+if (! function_exists('sapp')) {
+      function sapp($make = null, $parameters = [])
       {
             if (is_null($make)) {
-                  return Sham\Wise\Wise::getInstance();
+                  return Sham\Vo\Vo::getInstance();
             }
-            return Sham\Wise\Wise::getInstance()->make($make, $parameters);
+            return Sham\Vo\Vo::getInstance()->make($make, $parameters);
+      }
+}
+
+if (! function_exists('sget')) {
+      function sget($key = null)
+      {
+            return Sham\Vo\Vo::getInstance()->make('geter')->get($key);
+            //return sapp('geter')->get($key);
+      }
+}
+
+
+
+/**
+ * VoConfig
+ */
+if (! function_exists('vc')) {
+      function vc($vo = null)
+      {
+            if (is_null($vo)) {
+                  return Sham\Vo\Vo::getInstance()->ObjectConfig;
+            }
+            return isset(Sham\Vo\Vo::getInstance()->ObjectConfig[$vo])?Sham\Vo\Vo::getInstance()->ObjectConfig[$vo]:[];
       }
 }
 
@@ -60,6 +83,16 @@ if (! function_exists('sc')) {
             return null;
       }
 }
+
+/*
+|--------------------------------------------------------------------------
+| 通用的方法 - print_r() 打印出设置的信息
+|--------------------------------------------------------------------------
+| 小写  sap sc
+|
+*/
+
+
 
 
 

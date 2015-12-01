@@ -1,5 +1,5 @@
 <?php
-namespace Sham\Wise\Set;
+namespace Sham\Set;
 
 /**
  * Class Base
@@ -21,7 +21,7 @@ echo $base['s'] ;       //get
  * $base->clear     清除所有数据
  */
 
-class Base implements
+class Set implements
     \ArrayAccess,
     \Countable,
     \IteratorAggregate
@@ -196,6 +196,18 @@ class Base implements
     public function getIterator()
     {
         return new \ArrayIterator($this->data);
+    }
+
+    /**
+     * @param $key
+     * @param string $file
+     * 载入一个文件的配置
+     */
+    public function load($file=''){
+        if(file_exists($file)){
+            return include $file;
+        }
+        return [];
     }
 
     /**
