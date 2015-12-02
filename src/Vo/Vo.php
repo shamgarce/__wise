@@ -34,7 +34,7 @@ class Vo extends Set
       //对象实例
       public $instances = array();             //服务对象存储 实例
 
-      private $rootpath = '../App/Config/';     //配置文件的根目录
+      private $rootpath = '../SApp/Config/';     //配置文件的根目录
 
       /**
        * @param string $conf
@@ -81,7 +81,7 @@ class Vo extends Set
             }
             // echo $abstract;
 
-            $parameters = $parameters?:$this->ObjectConfig[$abstract];
+            $parameters = $parameters?:isset($this->ObjectConfig[$abstract])?$this->ObjectConfig[$abstract]:[];
 
             $this->instances[$abstract] = $this->build($abstract,$parameters);
             return $this->instances[$abstract];

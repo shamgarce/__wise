@@ -9,7 +9,7 @@ return [
     'pconnect' => 0,
     'quiet' => 1,
     'slowquery' => 1,
-    'rootpath' => '../App/Log/Mysql/',
+    'rootpath' => '../SApp/Log/Mysql/',
 ];
 
 

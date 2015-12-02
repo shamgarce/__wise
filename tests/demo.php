@@ -20,7 +20,14 @@ $de();
  */
 
 
-$ms = sget('gs.demo.123');
+
+$bus = sapp('bus');
+$bus['uuu'] = 9999999999;
+print_r($bus->all());
+
+
+exit;
+$ms = geter('gs.demo.123');
 echo '<br>';
 print_r($ms);
 echo '<br>';

@@ -20,15 +20,13 @@ if (! function_exists('sapp')) {
       }
 }
 
-if (! function_exists('sget')) {
-      function sget($key = null)
+if (! function_exists('geter')) {
+      function geter($key = null)
       {
             return Sham\Vo\Vo::getInstance()->make('geter')->get($key);
             //return sapp('geter')->get($key);
       }
 }
-
-
 
 /**
  * VoConfig
@@ -91,10 +89,6 @@ if (! function_exists('sc')) {
 | 小写  sap sc
 |
 */
-
-
-
-
 
 //
 //

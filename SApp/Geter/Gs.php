@@ -6,7 +6,7 @@
  * Time: 19:47
  */
 
-namespace App\Geter;
+namespace SApp\Geter;
 
 
 class Gs

@@ -7,7 +7,7 @@ namespace Sham\Set;
  * @package Sham\wise
  */
 
-class Base
+class Base extends Set
 {
       /*
        |--------------------------------------------------------------------------
