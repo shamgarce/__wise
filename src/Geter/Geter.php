@@ -53,7 +53,7 @@ class Geter
             $c = $mc[0]?:'';
             $c = ucfirst(strtolower($c)); //首字母大写
             $a = $mc[1]?:'index';
-            $p = $mc[2]?:'';
+            $p = isset($mc[2])?$mc[2]:'';
             //===========================================================
             $class = $this->getClass($c);
             return $class->$a($p);
