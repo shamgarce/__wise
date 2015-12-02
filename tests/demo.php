@@ -5,6 +5,7 @@ include("../vendor/autoload.php");
 
 
 
+
 /*
  * 调试
 //数据的调用
@@ -24,9 +25,9 @@ $de();
 $bus = sapp('bus');
 $bus['uuu'] = 9999999999;
 print_r($bus->all());
+$key = 'gs.demo.123';
 
-
-exit;
+//Sham\Vo\Vo::getInstance()->make('geter')->get($key);
 $ms = geter('gs.demo.123');
 echo '<br>';
 print_r($ms);

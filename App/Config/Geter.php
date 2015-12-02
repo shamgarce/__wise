@@ -8,7 +8,7 @@
 
 return [
     //-------------------存放地址-------------------
-    'GeterPath'      => '../SApp/Geter/',
-    'GeterNamespace'      => 'SApp\Geter',
+    'GeterPath'      => '../App/Geter/',
+    'GeterNamespace'      => 'App\Geter',
 ];
 

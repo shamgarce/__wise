@@ -16,7 +16,7 @@ class Wise extends Set
        */
       private static $_instance = null;       //单例调用
       public $_config  = array();              //C函数的存储     //所有的配置信息存储在这里
-      private $rootpath = '../SApp/Config/';     //配置文件的根目录
+      private $rootpath = '../App/Config/';     //配置文件的根目录
 
       /**
        * @param string $conf

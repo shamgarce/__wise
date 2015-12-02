@@ -23,7 +23,8 @@ if (! function_exists('sapp')) {
 if (! function_exists('geter')) {
       function geter($key = null)
       {
-            return Sham\Vo\Vo::getInstance()->make('geter')->get($key);
+            $res =  Sham\Vo\Vo::getInstance()->make('geter')->get($key);
+            return $res;
             //return sapp('geter')->get($key);
       }
 }

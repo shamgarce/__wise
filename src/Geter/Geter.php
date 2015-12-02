@@ -22,7 +22,7 @@ $de();
  */
 
 
-class Geter extends Base
+class Geter
 {
 
       /*

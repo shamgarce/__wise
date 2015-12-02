@@ -20,8 +20,8 @@ return [
     */
 
     'FileReflect'    => [
-        'Db'    => '../SApp/Config/Db.php',         //Mysql对象的
-        'Geter' => '../SApp/Config/Geter.php',      //cache对象的
+        'Db'    => '../App/Config/Db.php',         //Mysql对象的
+        'Geter' => '../App/Config/Geter.php',      //cache对象的
 //        'Dbr'    => '../SApp/Config/Dbr.php',         //Mysql对象的
 //        'Cache' => '../SApp/Config/Cache.php',      //cache对象的
     ],
